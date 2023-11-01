@@ -16,44 +16,60 @@ class DisposisiSection extends StatelessWidget {
         children: <Widget>[
           const headerSuratPengaturan(),
           const DisposisiColumn(), // Gunakan widget DataSuratMasukColumn di sini
-          Disposisi(
-            initial: "AD",
-            dari: "ADAMIN",
-            perihal:
-                "Diminta kepada semua pegawai diskominfo untuk mendaftar sebagai peserta donor darah sesuai ketentuan umum dalam surat tersebut. Minta dikoordinir oleh kasubag umum",
-            tanggal: "2023-10-20 13:05:01",
+          Container(
+            margin: const EdgeInsets.only(top: 6, bottom: 6),
+            child: Disposisi(
+              initial: "AD",
+              dari: "ADAMIN",
+              perihal:
+                  "Diminta kepada semua pegawai diskominfo untuk mendaftar sebagai peserta donor darah sesuai ketentuan umum dalam surat tersebut. Minta dikoordinir oleh kasubag umum",
+              tanggal: "2023-10-20 13:05:01",
+            ),
           ),
           const Divider(
             thickness: 1.0,
             color: Colors.black,
           ),
-          Disposisi(
-            initial: "RR",
-            dari: "RAIHANAH RAHMAH",
-            perihal:
-                "Diinformasikan kepada seluruh pegawai, bagi yang ingin donor dan memenuhi syarat langsung berkoordinasi dgn sebag umum",
-            tanggal: "2023-10-20 13:52:22",
+          Container(
+            margin: const EdgeInsets.only(top: 6, bottom: 6),
+            child: Disposisi(
+              initial: "RR",
+              dari: "RAIHANAH RAHMAH",
+              perihal:
+                  "Diinformasikan kepada seluruh pegawai, bagi yang ingin donor dan memenuhi syarat langsung berkoordinasi dgn sebag umum",
+              tanggal: "2023-10-20 13:52:22",
+            ),
           ),
           const Divider(
             thickness: 1.0,
             color: Colors.black,
           ),
-          Disposisi(
-            initial: "AW",
-            dari: "ADITYA EKA WICAKSANA",
-            perihal: "-",
-            tanggal: "2023-10-20 15:58:43",
+          Container(
+            margin: const EdgeInsets.only(top: 6, bottom: 6),
+            child: Disposisi(
+              initial: "AW",
+              dari: "ADITYA EKA WICAKSANA",
+              perihal: "-",
+              tanggal: "2023-10-20 15:58:43",
+            ),
           ),
           const Divider(
             thickness: 1.0,
             color: Colors.black,
           ),
-          Disposisi(
-            initial: "AR",
-            dari: "ABDUL RACHIM",
-            perihal:
-                "sesuaikan disposisi kadis untuk di infokan ke pegawai yang berminat dan sesuai syarat",
-            tanggal: "2023-10-21 14:44:12",
+          Container(
+            margin: const EdgeInsets.only(top: 6, bottom: 6),
+            child: Disposisi(
+              initial: "AR",
+              dari: "ABDUL RACHIM",
+              perihal:
+                  "sesuaikan disposisi kadis untuk di infokan ke pegawai yang berminat dan sesuai syarat",
+              tanggal: "2023-10-21 14:44:12",
+            ),
+          ),
+          const Divider(
+            thickness: 1.0,
+            color: Colors.black,
           ),
         ],
       ),
@@ -101,7 +117,6 @@ class _DisposisiColumnState extends State<DisposisiColumn> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 5), // Spasi atas
           Text(
             "Disposisi Surat",
             textAlign: TextAlign.center,
@@ -152,9 +167,10 @@ class _DisposisiState extends State<Disposisi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5, right: 5), // Berikan padding keseluruhan
+      padding: const EdgeInsets.only(
+          left: 5, right: 5), // Berikan padding keseluruhan
       child: Row(
-        children: <Widget>[ 
+        children: <Widget>[
           Expanded(
             child: GestureDetector(
               onTap: () {
@@ -217,6 +233,9 @@ class _DisposisiState extends State<Disposisi> {
                               ),
                             ],
                           ),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           Wrap(
                             direction: Axis.horizontal,
                             alignment: WrapAlignment.start,
@@ -236,8 +255,7 @@ class _DisposisiState extends State<Disposisi> {
                                 style: const TextStyle(
                                   fontSize: 11.0,
                                   fontWeight: FontWeight.w500,
-                                  height: 1.3, 
-                                  
+                                  height: 1.3,
                                 ),
                               ),
                             ],
@@ -246,7 +264,7 @@ class _DisposisiState extends State<Disposisi> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 5),
+                                padding: const EdgeInsets.only(top: 10),
                                 child: Text(
                                   widget.tanggal,
                                   style: const TextStyle(
@@ -288,6 +306,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
+          SizedBox(height: 10), 
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
@@ -296,54 +315,56 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
 
   Center _infoBanner(double contentWidth) {
     return Center(
-      child: SizedBox(
-        width: contentWidth,
-        // decoration: BoxDecoration(color: Colors.black),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 30,
-              child: Text(
-                "DB",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-              // Gambar profil pengguna (jika ada)
-              // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  textAlign: TextAlign.center, // Center-align the text
-                  "Badan Kepegawaian dan Pengembangan",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                Text(
-                  textAlign: TextAlign.center, // Center-align the text
-                  "Sumber Daya Manusia",
+      child: Container(
+        child: SizedBox(
+          width: contentWidth,
+          // decoration: BoxDecoration(color: Colors.black),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 30,
+                child: Text(
+                  "DB",
                   style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13.7,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
                 ),
-                Text(
-                  textAlign: TextAlign.center, // Center-align the text
-                  "DIDIK BUDIANTO",
-                  style: TextStyle(fontSize: 12),
-                ),
-                Text(
-                  textAlign: TextAlign.center, // Center-align the text
-                  "198701312011011007",
-                  style: TextStyle(fontSize: 12),
-                ),
-              ],
-            ),
-          ],
+                // Gambar profil pengguna (jika ada)
+                // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    textAlign: TextAlign.center, // Center-align the text
+                    "Badan Kepegawaian dan Pengembangan",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                  Text(
+                    textAlign: TextAlign.center, // Center-align the text
+                    "Sumber Daya Manusia",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13.7,
+                    ),
+                  ),
+                  Text(
+                    textAlign: TextAlign.center, // Center-align the text
+                    "DIDIK BUDIANTO",
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Text(
+                    textAlign: TextAlign.center, // Center-align the text
+                    "198701312011011007",
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
